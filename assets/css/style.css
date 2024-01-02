@@ -195,7 +195,7 @@ h6 {
   margin-left: 5px;
 }
 
-@media (max-width: 1690px) {
+@media (max-width: 1690px){
 
   .navbar {
     top: 5rem !important;
@@ -213,6 +213,20 @@ h6 {
   }
 }
 
+@media (max-height: 1000px){
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    bottom: 9rem;
+    
+    color: #ff0303;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+  }
+}
+
 @media (max-width: 1221px) {
   #header .logo {
     position: relative;
@@ -221,6 +235,7 @@ h6 {
   }
 
   .navbar {
+  
     justify-content: flex-start;
   }
 
@@ -293,7 +308,7 @@ h6 {
   color: #fff;
 }
 
-@media (max-width: 1221px) {
+@media (max-width: 1221px) or (max-height: 1000px){
   .mobile-nav-toggle {
     display: block;
   }
@@ -537,6 +552,11 @@ h6 {
 @media (max-width: 992px) {
   #hero .container {
     padding-top: 62px;
+  }
+}
+@media (max-height: 922px) {
+  #hero .container {
+    height: 20vh;
   }
 }
 
