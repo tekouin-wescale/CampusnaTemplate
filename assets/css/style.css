@@ -213,6 +213,8 @@ h6 {
   }
 }
 
+
+
 @media (max-height: 1000px){
   .mobile-nav-toggle {
     display: block;
@@ -511,7 +513,80 @@ h6 {
 }
 
 
+.wrap {
+  overflow: hidden;
+}
+
+.carousel{
+  display: flex;
+  left: -100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transform: translateX(100%);
+  @media (min-width: 30em){
+
+    left: -33.33333%;
+    transform: translateX(33.33333%);
+  };
+  @media (min-width: 40em){
+
+    left: -20%;
+    transform: translateX(20%);
+  }
+  }
+
+      
+.carousel.is-reversing {
+  transform: translateX(-100%);
+  @media (min-width: 30em){
+
+    transform: translateX(-33.33333%)
+  };
+  @media (min-width: 40em){
+
+    transform: translateX(-20%)
+  };
+  }
+.carousel.is-set{
+  transform: none;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+} 
+.carousel-seat img{
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+}
+      
+.carousel-seat{
+
+  
+  flex: 1 0 100%;
+  order: 2;
+ 
+  @media (min-width: 30em)
+  {
+    flex-basis: 33.33333%
+  };
+  @media (min-width: 40em){
+
+    flex-basis: 20%;
+  }
+}
+    
+
+    
+.carousel-seat.is-ref{
+
+  order: 1;
+}
+  
+
 #hero a .platform-link {
+  border: 4px solid #ffffff; 
+  border-radius: 25px;
+  padding: 10px; 
   position: absolute;
   color: #E5164F; /* Initial text color */
   text-decoration: none; /* Remove underline */
@@ -561,11 +636,11 @@ h6 {
 }
 
 #hero h1 {
-  padding-top: 62px;
+  padding-top: 99px;
   margin: 0;
   font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
+  font-weight: 4500;
+  line-height: 60px;
   color: #fff;
   font-family: "Poppins", sans-serif;
 }
@@ -641,6 +716,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 .content .card {
+  text-align: justify;
   width: 33rem;
   height: 430px;
   padding: 20px 20px 0px 20px;
@@ -658,6 +734,7 @@ h6 {
 
 @media screen and (max-width: 2001px) {
   .content .card {
+    text-align: justify;
     width: 100%;
     height: 430px;
     padding: 0px 20px 0px 20px;
@@ -677,9 +754,9 @@ h6 {
 
 @media screen and (max-width: 1200px) {
   .content .card .heading {
-
+    text-align: justify;
     font-size: 20px;
-    margin: 5px 20px 16px;
+    margin: 5px;
     font-weight: 300;
     line-height: 1.2;
   }
@@ -687,11 +764,12 @@ h6 {
 }
 
 .content .card .main-content {
+  text-align: justify;
   flex: 1;
 }
 
 .content .card .header span:first-child {
- 
+  text-align: justify;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #717171;
@@ -700,17 +778,21 @@ h6 {
 }
 
 .content .card .heading {
+  
+  text-align: justify;
   font-size: 24px;
-  margin: 5px 20px 16px;
+  margin: 5px;
   font-weight: 600;
 }
 
 .content .card .categories {
+  text-align: justify;
   display: flex;
   gap: 8px;
 }
 
 .content .card .categories span {
+  text-align: justify;
   background-color: #e81cff;
   padding: 4px 8px;
   font-weight: 600;
@@ -720,12 +802,14 @@ h6 {
 }
 
 .content .card .footer {
+  text-align: justify;
   font-weight: 600;
   color: #717171;
   margin-right: 4px;
 }
 
 .content .card:hover {
+  text-align: justify;
   rotate: 8deg;
 }
 
@@ -841,26 +925,31 @@ section {
 
 
 .about .content h3 {
+  text-align: justify;
   font-weight: 600;
   font-size: 26px;
 }
 
 .about .content ul {
+  text-align: justify;
   list-style: none;
   padding: 0;
 }
 
 .about .content ul li {
+  text-align: justify;
   padding-bottom: 10px;
 }
 
 .about .content ul i {
+  text-align: justify;
   font-size: 20px;
   padding-right: 4px;
   color: #E5164F;
 }
 
 .about .content .learn-more-btn {
+  text-align: justify;
   background: #E5164F;
   color: #fff;
   border-radius: 50px;
@@ -872,12 +961,14 @@ section {
 }
 
 .about .content .learn-more-btn:hover {
+  text-align: justify;
   background: #E5164F;
   color: #fff;
 }
 
 @media (max-width: 768px) {
   .about .content .learn-more-btn {
+    text-align: justify;
     margin: 0 48px 0 0;
     padding: 6px 18px;
   }
@@ -917,16 +1008,19 @@ section {
 }
 
 .why-us .content h3 {
+
   font-weight: 700;
   font-size: 34px;
   margin-bottom: 30px;
 }
 
 .why-us .content p {
+
   margin-bottom: 30px;
 }
 
 .why-us .content .more-btn {
+
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
   padding: 6px 30px 8px 30px;
@@ -937,9 +1031,11 @@ section {
 
 .why-us .content .more-btn i {
   font-size: 14px;
+  text-align: justify;
 }
 
 .why-us .content .more-btn:hover {
+  text-align: justify;
   color: #E5164F;
   background: #fff;
 }
