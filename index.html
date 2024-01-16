@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  
   <title>Campusna</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -51,27 +51,45 @@
 
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <a href="index.html">
-      <img class="" src="./assets/img/logo.png"  style="float:left;width:180px;height:120px;" alt="Logo">
+      <img class="logo" src="./assets/img/logo.png"  style="width:190px;height:80x;" alt="Logo">
     </a>
+ 
     <br>
     <div class="container d-flex align-items-center">
       <br>
-      
+      <ul>
+        <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 -960 960 960" width="36" style="fill: white;"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+      </ul>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="active" href="index.html" style="font-size: 22px;">Home</a></li>
-          <li><a href="tekouin.html" style="font-size: 22px;">TEKOUIN</a></li>
-          <li><a href="contents.html" style="font-size: 22px;">Contents of Excellence</a></li>
-          <li><a href="customers.html" style="font-size: 22px;">Customers</a></li>
-          <li><a href="events.html" style="font-size: 22px;">News/Events</a></li>
-          <li><a href="careers.html" style="font-size: 22px;">Careers </a></li>
-          <li><a href="contact.html" style="font-size: 22px;">Contact</a></li>
-          <li><a href="faq.html" style="font-size: 22px;">FAQ</a></li>
+
+  <!-- Sidebar -->
+    <ul class="sidebar">
+      <li class="close-button" onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 -960 960 960" width="36"  style="fill: white;"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+      <li><a class="active" href="index.html" >Home</a></li>
+      <li><a href="tekouin.html" >TEKOUIN</a></li>
+      <li><a href="contents.html" >Contents of Excellence</a></li>
+      <li><a href="customers.html" >Customers</a></li>
+      <li><a href="events.html" >News/Events</a></li>
+      <li><a href="careers.html" >Careers </a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+ 
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-md sticky-top">
+        <ul class="navbar-nav">
+          <li ><a class="active" href="index.html" >Home</a></li>
+          <li ><a href="tekouin.html" >TEKOUIN</a></li>
+          <li ><a href="contents.html" >Contents of Excellence</a></li>
+          <li ><a href="customers.html" >Customers</a></li>
+          <li ><a href="events.html" >News/Events</a></li>
+          <li ><a href="careers.html" >Careers </a></li>
+          <li ><a href="contact.html">Contact</a></li>
+          <li ><a href="faq.html">FAQ</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
@@ -80,15 +98,10 @@
   <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex justify-content-center align-items-center">
-    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-      
+  <section id="hero" class="d-flex justify-content-center align-items-center ">
+    <div class="mt-5 position-relative" data-aos="zoom-in" data-aos-delay="100">   
       <h1><span>Campusna </span>is an online learning and training company.</h1>
-
-
-
-      </div>
-        
+    </div>
       <!-- <a href="contents.html" class="btn-get-started">Get Started</a> -->
     </div>
   </section><!-- End Hero -->
@@ -96,26 +109,24 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="about" class="about" >
       <div class="container" data-aos="fade-up">
 
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="assets/img/IMG_2166.JPG" class="img-fluid" alt="" left>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            
-            <div  class="card">
-              <div class="main-content">
-                  <div class="header">
-                      <span>Our Story</span>
-                </div>
-                <p class="heading"> Founded in 2020, Campusna was born from the shared vision of professionals passionate about education and cutting-edge technologies. 
-                  We quickly emerged as a key player in the Ed-Tech sector, specializing in advanced educational platforms and high-quality scientific content.</p>
-              
-              </div>
-           
+        <div class="row content" >
+          <div  class="col-12 col-lg-6 mx-auto pt-4 pt-lg-0 order-2 order-lg-1">
+            <div class="card"  >
+              <span class="text-light" >Our Story</span>
+              <p class="heading "> Founded in 2020, Campusna was born from the shared vision of professionals passionate about education and cutting-edge technologies. 
+                We quickly emerged as a key player in the Ed-Tech sector, specializing in advanced educational platforms and high-quality scientific content.</p>
             </div>
+          </div>
+          <div class="col-lg-12 d-flex align-items-stretch" >
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                  <img src="assets/img/IMG_2166.JPG" class="img-fluid glowing-img" alt="" left>
+                </div>
+              </div>
+            </div><!-- End .content-->
           </div>
         </div>
 
@@ -159,7 +170,7 @@
 
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
+            <div class="content"  style="background-color: #EE1F55;">
               <h3>Our Commitment to Education</h3>
               <p>
                 Since our inception, we have been committed to revolutionizing learning by harnessing the potential of educational technologies to train the next generation of leaders and experts. Our flagship platform, TEKOUIN, provides an immersive learning experience, fostering academic and professional excellence.
@@ -197,7 +208,7 @@
                   </div>
                 </div><!-- End .content-->
               <div class="col-lg-4 d-flex align-items-stretch">
-                <div class="content"  style="background-color: #6242D4;">
+                <div class="content"  style="background-color: #532E88;">
                   <h3>Partnerships of Excellence</h3>
                   <p>
                     We take pride in collaborating with renowned academic institutions, including the University of Paris Dauphine and the HONORIS group. These partnerships reflect our commitment to educational innovation and our positive impact in higher education.
@@ -219,7 +230,7 @@
     
             <div class="row">
               <div class="col-lg-4 d-flex align-items-stretch">
-                <div class="content">
+                <div class="content" style="background-color: #EE1F55;">
                   <h3>Trust of Global Leaders</h3>
                   <p>
                     Since our early days, several major players have entrusted us with their continuous training. Among our partners are Santander Bank, the Holberton school network worldwide, 
@@ -260,7 +271,7 @@
                           </div>
                         </div><!-- End .content-->
                       <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="content"  style="background-color: #6242D4;">
+                        <div class="content"  style="background-color: #532E88;">
                           <h3>Our Future Together</h3>
                           <p>
                             Campusna continues to evolve, leveraging the latest advancements in cybersecurity,
@@ -450,7 +461,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" class="mt-5*">
 
     <div class="footer-top" style="background-color: #28162C;">
       <div class="container">

@@ -159,3 +159,42 @@ var progress = function(e) {
 window.setInterval(function(){
   progress();
 }, 2000);
+
+
+function showSidebar() {
+  const sidebar = document.querySelector('.sidebar')
+  sidebar.style.display = 'flex'
+}
+
+
+function hideSidebar() {
+  const sidebar = document.querySelector('.sidebar')
+  sidebar.style.display = 'none'
+}
+
+// Add this JavaScript code to your existing JavaScript file or script
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sidebar = document.querySelector('.sidebar');
+  const links = document.querySelectorAll('.sidebar a');
+
+  // Add scroll event listener
+  window.addEventListener('scroll', function () {
+    // Get the scroll position
+    const scrollPosition = window.scrollY;
+
+    // Check which link is currently scrolled over
+    links.forEach(function (link) {
+      const sectionId = link.getAttribute('href').substring(1);
+      const section = document.getElementById(sectionId);
+
+      if (section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+        // Add 'active' class to the currently scrolled-over link
+        link.classList.add('active');
+      } else {
+        // Remove 'active' class from other links
+        link.classList.remove('active');
+      }
+    });
+  });
+});
