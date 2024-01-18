@@ -161,40 +161,19 @@ window.setInterval(function(){
 }, 2000);
 
 
-function showSidebar() {
-  const sidebar = document.querySelector('.sidebar')
-  sidebar.style.display = 'flex'
-}
 
-
-function hideSidebar() {
-  const sidebar = document.querySelector('.sidebar')
-  sidebar.style.display = 'none'
-}
-
-// Add this JavaScript code to your existing JavaScript file or script
-
-document.addEventListener('DOMContentLoaded', function () {
+function toggleSidebar() {
   const sidebar = document.querySelector('.sidebar');
-  const links = document.querySelectorAll('.sidebar a');
+  const hamburgerIcon = document.querySelector('.hamburger-icon');
+  const closeIcon = document.querySelector('.close-icon');
 
-  // Add scroll event listener
-  window.addEventListener('scroll', function () {
-    // Get the scroll position
-    const scrollPosition = window.scrollY;
-
-    // Check which link is currently scrolled over
-    links.forEach(function (link) {
-      const sectionId = link.getAttribute('href').substring(1);
-      const section = document.getElementById(sectionId);
-
-      if (section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
-        // Add 'active' class to the currently scrolled-over link
-        link.classList.add('active');
-      } else {
-        // Remove 'active' class from other links
-        link.classList.remove('active');
-      }
-    });
-  });
-});
+  if (sidebar.style.display === 'flex') {
+    sidebar.style.display = 'none';
+    hamburgerIcon.style.display = 'block';
+    closeIcon.style.display = 'none';
+  } else {
+    sidebar.style.display = 'flex';
+    hamburgerIcon.style.display = 'none';
+    closeIcon.style.display = 'block';
+  }
+}

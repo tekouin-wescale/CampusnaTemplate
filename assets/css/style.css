@@ -55,13 +55,15 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #532E88;
+  cursor: pointer !important;
+  background: #28162C !important;
   color: #fff;
 }
 
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
+  background: #EE1F55;
 }
 
 /*--------------------------------------------------------------
@@ -95,6 +97,39 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+
+@media screen and (min-width: 320px) and (max-width: 430px) {
+  .mobile-logo {
+    display: block;
+    margin-left: 25% !important;
+    margin-right: auto;
+    margin-top: auto;
+  }
+
+  .intro{
+    display: flex;
+    align-items: center !important;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-logo {
+    display: block;
+    margin-left: 17%;
+    margin-right: auto;
+    margin-top: 5%;
+  }
+
+  .intro{
+    display: block;
+    margin-left: 3%;
+    margin-right: auto;
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+}
 #header {
   background: transparent;
   position: absolute;
@@ -125,10 +160,11 @@ h6 {
 
 .navbar { 
   padding: 0%;
-  margin-left: 20%; 
+  margin-left: 23%; 
   display: flex;
   align-items: flex-end;
 }
+
 
 .navbar ul {
   margin-top: -45px;
@@ -166,6 +202,7 @@ h6 {
   font-size: 22px !important;
 }
 
+
 .navbar a i,
 .navbar a:focus i {
   font-size: 14px;
@@ -173,6 +210,13 @@ h6 {
   margin-left: 5px;
 }
 
+@media screen and (min-width: 769px) and 
+(max-width: 1500px) {
+  .navbar ul {
+    display: flex;
+    gap: 20px !important;
+  }
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -180,45 +224,50 @@ h6 {
   height: 100vh;
   width: 250px;
   z-index: 999;
-  background-color: rgba(255, 255, 255, 0.303);
-  backdrop-filter: blur(10px);
+  background-color: rgba(40, 22, 44, 1);
+  backdrop-filter: blur(8px);
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
+  display: none;
   flex-direction: column;
-  padding-left: 100px !important;
-  justify-content: center;
-  color: white;
-  font-size: xx-large;
+  justify-content: start;
+  padding-top: 20%;
   text-decoration: none;
   list-style: none;
-  padding: 0;
   overflow-y: auto;
+  font-size: x-large;
 }
 
-.sidebar li {
-  width: 100%;
-  text-decoration: none;
-  transition: background-color 0.3s;
+.sidebar-content {
+  margin-bottom: -20%;
+}
+
+.list-group-item{
+  background: transparent !important;
+}
+
+.sidebar .list-group-item {
+  padding: 10px !important;
+  padding-left: 10% !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+.sidebar .list-group-item:hover {
+  background-color: #EE1F55 !important;
 }
 
 
-
-.sidebar a{
-  width: 100%;
-  text-decoration: none;
-  color: #28162C;
+.sidebar .list-group-item a {
+  color: #ffffff; 
+  text-decoration: none; 
 }
 
-.sidebar a:hover {
-  background-color: rgba(238, 31, 86, 0.175);
-  cursor: pointer;
-  color: white;
-  font-size: xx-large;
+.sidebar .list-group-item a:hover {
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.2);
 }
 
-.sidebar a.active {
-  color: white;
-}
+
 .menu-button {
   display: none;
   padding: 10px; 
@@ -229,13 +278,15 @@ h6 {
   z-index: 1000; 
 }
 
-.close-button {
-  display: flex;
-  align-items: flex-end;
-  padding: 25px; 
-  z-index: 1000; 
-  left: 250px;
+.hamburger-icon, .close-icon{
+  font-size: 30px;
+  border-radius: 50%;
+  padding: 5px;
+  color: #EE1F55;
+  background-color: #EE1F55;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
+
 
 @media screen and (max-width: 768px) {
   .hideOnMobile {
@@ -324,10 +375,17 @@ h6 {
   top: 15px;
   right: 15px;
 }
+
 .glowing-img{
-  animation: pulse 3s infinite, purple 3s infinite;
+  animation: pulse 5s infinite, purple 3s infinite;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  padding: 2%;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  position: relative;
+  margin-bottom: 5% !important;
 }
+
 @keyframes pulse {
   0% {
       transform: scale(1);
@@ -343,13 +401,16 @@ h6 {
 }
 
 @keyframes purple {
+  25% {
+    box-shadow: #28162C 0px 1px 3px;
+  }
 
   50% {
       box-shadow: #532E88 0px 2px 6px;
   }
 
   100% {
-      box-shadow: #532E88 0px 4px 0px;
+      box-shadow: #EE1F55 0px 3px 0px;
   }
 }
 
@@ -419,26 +480,25 @@ h6 {
   display: block;
 }
 
-.row .card {
+.row .description {
   justify-content: space-evenly;
   align-items: center;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin: 0 auto;
   padding: 0;
-  
 }
-.card {
+
+.description {
   width: 520px;
   height: 554px;
-  transition: all 0.2s;
   position: relative;
   cursor: pointer;
   background: rgba(255,255,255,.05);
 }
 
-.card-inner {
+.description-inner {
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -502,7 +562,6 @@ h6 {
   background-size: cover;
   position: relative;
 }
-
 
 .wrap {
   overflow: hidden;
@@ -705,42 +764,47 @@ h6 {
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
-.content .card {
+.content .description {
+  padding: 50% 0 100% 50%;
   text-align: justify;
   width: 33rem;
   height: 430px;
   padding: 20px 20px 0px 20px;
   color: white;
   background: linear-gradient(#EE1F55, #532E88) padding-box,
-              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+              linear-gradient(145deg, transparent 35%,#28162C, #EE1F55) border-box;
   border: 2px solid transparent;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
 }
 
+@media screen and (max-width: 375px) {
+  .mobile-description{
+   display: flex;
+   justify-content: column;
+  }
+}
+
 @media screen and (max-width: 2001px) {
-  .content .card {
+  .content .description {
     text-align: justify;
     width: 100%;
     height: 430px;
     padding: 0px 20px 0px 20px;
     color: white;
     background: linear-gradient(#EE1F55, #532E88) padding-box,
-                linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+                linear-gradient(145deg, transparent 35%, #28162C, #EE1F55) border-box;
     border: 2px solid transparent;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
   }
-  
 }
 
 @media screen and (max-width: 1200px) {
   .content .card .heading {
-    text-align: justify;
-    font-size: 20px;
-    margin: 5px;
+    font-size: large;
     font-weight: 300;
     line-height: 1.2;
   }
@@ -761,12 +825,27 @@ h6 {
 
 }
 
-.content .card .heading {
-  
-  text-align: justify;
-  font-size: 24px;
-  margin: 5px;
-  font-weight: 600;
+.content .description .heading {
+  display: flex;
+  justify-content: column;
+  font-size: 22px;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Media query for tablets (up to 768px width) */
+@media screen and (max-width: 768px) {
+  .content .description .heading {
+    font-size: 18px; /* Adjust the font size for tablets */
+  }
+}
+
+/* Media query for mobile screens (up to 480px width) */
+@media screen and (max-width: 480px) {
+  .content .description .heading {
+    display: block;
+    font-size: 16px; /* Adjust the font size for mobile screens */
+  }
 }
 
 .content .card .categories {
@@ -809,12 +888,9 @@ h6 {
   .container .dd h2{
     line-height: 2;
     position: relative;
-    
     font-size: 20px;
     font-weight: 400;
-    
   }
-  
 }
 
 .section-content h2{
@@ -823,7 +899,7 @@ h6 {
 }
 
 .section-content p{
-  color: #717171;
+  color: #cc2828;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 30px;
@@ -1776,9 +1852,8 @@ section {
 }
 
 #footer .footer-top .footer-contact {
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
-
 
 
 #footer .footer-top .footer-contact h4 {
@@ -1927,7 +2002,7 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: #EE1F55;
+  background: #28162C !important;
   color: #fff;
   text-decoration: none;
 }
