@@ -39,42 +39,70 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <script type="text/javascript">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div id="google_translate_element"></div>
+      <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
       }
       </script>
-    <a href="index.html">
-      <img class="" src="./assets/img/logo.png" width="250" height="150" alt="Logo">
-    </a>
-    <br>
-    <div class="container d-flex align-items-center">
-      <br>
-      
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a  href="index.html">Home</a></li>
-          <li><a href="tekouin.html">TEKOUIN</a></li>
-          <li><a href="contents.html">Contents of Excellence</a></li>
-          <li><a href="customers.html">Customers</a></li>
-          <li><a href="events.html">News/Events</a></li>
-          <li><a href="careers.html">Careers </a></li>
-          <li><a class="active" href="contact.html">Contact</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-    <br>
-  </header>
-  <!-- End Header -->
   
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <a href="index.html">
+        <img class="logo mobile-logo" src="./assets/img/logo.png"  style="width:190px;height:80x;" alt="Logo">
+      </a>
+   
+      <br>
+      <div class="container d-flex align-items-center">
+        
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <li class="menu-button" onclick="toggleSidebar()">
+          <a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 -960 960 960" width="36" style="fill: white;" class="hamburger-icon">
+              <!-- Hamburger Icon Lines -->
+              <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+            </svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" height="36" viewBox="0 -960 960 960" width="36" style="fill: white; display: none;" class="close-icon">
+              <!-- Close Icon Lines -->
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+            </svg>
+          </a>
+        </li>
+        
+  
+    <!-- Sidebar -->
+      <ul class="sidebar list-group ">
+        <li class="list-group-item "><a  href="index.html" >Home</a></li>
+        <li class="list-group-item"><a href="tekouin.html" >TEKOUIN</a></li>
+        <li class="list-group-item"><a href="contents.html" >Contents of Excellence</a></li>
+        <li class="list-group-item"><a href="customers.html" >Customers</a></li>
+        <li class="list-group-item"><a href="events.html" >News/Events</a></li>
+        <li class="list-group-item"><a href="careers.html" >Careers </a></li>
+        <li class="list-group-item"><a class="active" href="contact.html">Contact</a></li>
+        <li class="list-group-item"><a href="faq.html">FAQ</a></li>
+      </ul>
+   
+  
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md sticky-top">
+          <ul>
+            <li ><a href="index.html" >Home</a></li>
+            <li ><a href="tekouin.html" >TEKOUIN</a></li>
+            <li ><a href="contents.html" >Contents of Excellence</a></li>
+            <li ><a href="customers.html" >Customers</a></li>
+            <li ><a href="events.html" >News/Events</a></li>
+            <li ><a href="careers.html" >Careers </a></li>
+            <li ><a class="active" href="contact.html">Contact</a></li>
+            <li ><a href="faq.html">FAQ</a></li>
+          </ul>
+        </nav><!-- .navbar -->
+  
+      </div>
+      <br>
+    </header><!-- End Header -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
@@ -160,83 +188,83 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top" style="background-color: #28162C;">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <img class="logo me-auto" src="./assets/img/logo.png" width="150" height="100" alt="Logo">
+<!-- ======= Footer ======= -->
+<footer id="footer" class="mt-5">
+  <div class="footer-top" style="background-color: #28162C;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <!-- One: Logo -->
+          <img class="mt-5" src="./assets/img/logo.png" width="150" height="100" alt="Logo">
+        </div>
+  
+        <div class="col-lg-3 col-md-6 col-sm-12 footer-contact">
+          <!-- Two: Text -->
+          <br>
+          <br>
+          <p>Campusna is an online learning and training company.</p>
+          <br>
+          <br>
+          <p>
+            Rue du Lac Biwa
+            
             <br>
-            <br>
-            <p>Campusna is an online learning and training company.</p>
-            <br>
-            <br>
-            <p>
-              Rue du Lac Biwa<br>
-              
-              Tunis<br><br>
-              <strong>Phone:</strong> (+33) 7 80 34 52 11 /  (+216) 25 251 714<br>
-              <strong>Email:</strong>  contact@campusna.com<br>
-            </p>
-          </div>
-
-          <!-- <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div> -->
-
-          <!-- <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div> -->
-
-          <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div> -->
-
+            
+            Tunis<br><br>
+            <strong>Phone:</strong> (+33) 7 80 34 52 11 / (+216) 25 251 714<br>
+            <strong>Email:</strong>  contact@campusna.com<br>
+          </p>
+        </div>
+  
+        <div class="col-lg-3 col-md-6 col-sm-3 footer-links">
+          <!-- Three: Useful Links -->
+          <h4>Useful Links</h4>
+          
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-lg-3 col-md-6 col-sm-6 footer-links">
+          <!-- Four: Our Services -->
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Comming Soon</a></li>
+          </ul>
         </div>
       </div>
     </div>
+    
+  </div>
 
-    <div class="container d-md-flex py-4">
+  <div class="container d-md-flex py-4">
 
-      <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Campusna</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-         
-          Designed by <a href="https://bootstrapmade.com/">Campusna Team</a>
-        </div>
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Campusna</span></strong>. All Rights Reserved
       </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      <div class="credits">
+       
+        Designed by <a href="">Campusna Team</a>
       </div>
     </div>
-  </footer><!-- End Footer -->
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+  </div>
+</footer><!-- End Footer -->
 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
