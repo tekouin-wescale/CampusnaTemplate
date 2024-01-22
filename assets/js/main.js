@@ -177,3 +177,5 @@ function toggleSidebar() {
     closeIcon.style.display = 'block';
   }
 }
+
+
