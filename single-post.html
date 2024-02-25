@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title> Campusna </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+    <!-- call for header.html file start -->
+
+    <!-- Container to hold the included header -->
+    <div id="header-container"></div>
+
+    <!-- Include JavaScript to load the header -->
+    <script src="includeHeader.js"></script>
+    
+    <!-- call for header.html file start -->
+
+
+        <!-- Banner Start -->
+        <section class="page-banner single-p-banner" style="background-image: url(assets/images/banner2.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <a class="post-cate" href="#"><span id="category"></span></a>
+                        <h2 class="banner-title" id="title"></h2>
+                        <div class="bp-meta">
+                            <a href="#"><i class="icon_clock_alt"></i><span id="date"></span></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  
+        <!-- Banner End -->
+
+        <!-- Blog Start -->
+        <section class="blog-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div id="post-content">
+                            <!-- Blog content will be dynamically filled based on selected blog -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <!-- Sidebar Widgets -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog End -->
+        <!-- Script that IS FETCHING DATA FROM A JSON FILE Start -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const blogId = urlParams.get('id');
+                if (blogId) {
+                    fetch("blogs.json")
+                        .then(response => response.json())
+                        .then(data => {
+                            const selectedBlog = data.blogs.find(blog => blog.id == blogId);
+                            if (selectedBlog) {
+                                document.getElementById("category").innerText = selectedBlog.category;
+                                document.getElementById("title").innerText = selectedBlog.title;
+                                document.getElementById("date").innerText = selectedBlog.date;
+
+                                const postContent = document.getElementById('post-content');
+                                postContent.innerHTML = ''; // Clear existing content
+
+                                // Adding content paragraphs and images
+                                selectedBlog.content.forEach(item => {
+                                    if (item.type === 'paragraph') {
+                                        const paragraph = document.createElement('p');
+                                        paragraph.textContent = item.text;
+                                        postContent.appendChild(paragraph);
+                                    } else if (item.type === 'image') {
+                                        const image = document.createElement('img');
+                                        image.src = item.src;
+                                        image.alt = item.alt;
+                                        postContent.appendChild(image);
+                                    } else if (item.type === 'blockquote') {
+                                        const blockquote = document.createElement('blockquote');
+                                        blockquote.textContent = item.quote;
+                                        const cite = document.createElement('cite');
+                                        cite.textContent = item.cite;
+                                        blockquote.appendChild(cite);
+                                        postContent.appendChild(blockquote);
+                                    }
+                                });
+
+                                // Adding tags
+                                const tags = document.createElement('div');
+                                tags.classList.add('post-tags');
+                                const tagsTitle = document.createElement('h5');
+                                tagsTitle.textContent = 'Tags:';
+                                tags.appendChild(tagsTitle);
+                                selectedBlog.tags.forEach(tag => {
+                                    const tagLink = document.createElement('a');
+                                    tagLink.href = '#';
+                                    tagLink.textContent = tag;
+                                    tags.appendChild(tagLink);
+                                });
+                                postContent.appendChild(tags);
+
+                                // Adding author information
+                                const authorInfo = document.createElement('div');
+                                authorInfo.classList.add('post-admin');
+                                const authorImage = document.createElement('img');
+                                authorImage.src = selectedBlog.author.avatar;
+                                authorImage.alt = 'Author Avatar';
+                                const authorName = document.createElement('a');
+                                authorName.href = '#';
+                                authorName.textContent = selectedBlog.author.name;
+                                const authorRole = document.createElement('span');
+                                authorRole.textContent = 'About Author';
+                                const authorBio = document.createElement('p');
+                                authorBio.textContent = selectedBlog.author.bio;
+                                authorInfo.appendChild(authorImage);
+                                authorInfo.appendChild(authorName);
+                                authorInfo.appendChild(authorRole);
+                                authorInfo.appendChild(authorBio);
+                                postContent.appendChild(authorInfo);
+                            }
+                        })
+                        .catch(error => console.error("Error fetching data:", error));
+                }
+            });
+        </script>
+        <!-- Script that IS FETCHING DATA FROM A JSON FILE End -->
+
+    <!-- Footer Section Start -->
+    <br><br><br><br><br><br><br>
+    <div id="footer-container"></div>
+    <script src="includeFooter.js"></script>
+    <!-- Footer Section End -->
+
+        <!-- Back To Top -->
+        <a href="#" id="back-to-top">
+            <i class="fal fa-angle-double-up"></i>
+        </a>
+        <!-- Back To Top -->
+
+        <!-- Start Include All JS -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.appear.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/slick.js"></script>
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/TweenMax.min.js"></script>
+        <script src="assets/js/lightcase.js"></script>
+        <script src="assets/js/jquery.plugin.min.js"></script>
+        <script src="assets/js/jquery.countdown.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+        <script src="assets/js/jquery.shuffle.min.js"></script>
+
+        <script src="assets/js/theme.js"></script>
+        <!-- End Include All JS -->
+
+    </body>
+
+</html>

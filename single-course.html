@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title> Campusna </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+    <!-- call for header.html file start -->
+
+    <!-- Container to hold the included header -->
+    <div id="header-container"></div>
+
+    <!-- Include JavaScript to load the header -->
+    <script src="includeHeader.js"></script>
+    
+    <!-- call for header.html file start -->
+
+
+        <!-- Banner Start -->
+        <section class="page-banner" style="background-image: url(assets/images/banner5.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="banner-title">Courses Single</h2>
+                        <div class="bread-crumbs">
+                            <a href="index.html">Home</a> <span></span> Courses Single
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  
+        <!-- Banner End -->
+
+        <!-- Course Section Start -->
+        <section class="course-details-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="single-course-area">
+                            <div class="course-top">
+                                <h4 id="courseTitle"></h4>
+                                <div class="course-meta">
+                                </div>
+                            </div>
+                            <div class="sc-thumb">
+                                <img src="assets/images/single-course/1.jpg" alt="">
+                            </div>
+                            <div class="course-tab-wrapper">
+                                <ul class="course-tab-btn nav nav-tabs">
+                                    <li><a href="#overview" data-toggle="tab"><i class="icon_ribbon_alt"></i>Overview</a></li>
+                                </ul>
+                                <!-- Tab Content -->
+                                <div class="tab-content">
+                                    <!-- Overview Tab -->
+                                    <div class="tab-pane fade in" id="overview" role="tabpanel">
+                                        <div class="overview-content">
+                                            <h4 id="courseDescriptionTitle"></h4>
+                                            <p id="courseDescription"></p>
+                                            <h4>Course Details</h4>
+                                            <ul id="courseDetailsList"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Tab Content -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="course-sidebar">
+                            <aside class="widget">
+                                <div class="info-course">
+                                    <ul id="sidebarDetailsList"></ul>
+                                    <a class="bisylms-btn" href="#">Enroll Course</a>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            // Function to fetch JSON data
+            async function fetchData(id) {
+                const response = await fetch('courses.json');
+                const data = await response.json();
+                return data.find(course => course.id === id);
+            }
+        
+            // Function to update course details
+            function updateCourseDetails(course) {
+                document.getElementById('courseTitle').textContent = course.course_details.course_title;
+                document.getElementById('courseDescriptionTitle').textContent = 'Course Description';
+                document.getElementById('courseDescription').textContent = course.course_details.course_description;
+        
+                const courseDetailsList = document.getElementById('courseDetailsList');
+                courseDetailsList.innerHTML = '';
+                course.course_details.course_details.forEach(detail => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="icon_check_alt2"></i>${detail.title}<span>${detail.description}</span>`;
+                    courseDetailsList.appendChild(li);
+                });
+        
+                const sidebarDetailsList = document.getElementById('sidebarDetailsList');
+                sidebarDetailsList.innerHTML = '';
+                const details = [
+                    `Instructor: ${course.course_details.instructor}`,
+                    `Lectures: ${course.course_details.number_of_lectures}`,
+                    `Duration: ${course.course_details.duration}`,
+                    `Enrolled: ${course.course_details.enrollment_count} students`,
+                    `Language: ${course.course_details.language}`,
+                    `Deadline: ${course.course_details.deadline}`
+                ];
+                details.forEach(detail => {
+                    const li = document.createElement('li');
+                    li.textContent = detail;
+                    sidebarDetailsList.appendChild(li);
+                });
+            }
+        
+            // Extract course ID from the URL query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('id');
+        
+            // Load course details based on the extracted course ID
+            fetchData(courseId)
+                .then(course => updateCourseDetails(course))
+                .catch(error => console.error('Error fetching data:', error));
+        </script>
+        <!-- Course Section End -->
+        
+    <!-- Footer Section Start -->
+    <footer class="footer-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="cta-wrapper">
+                        <img src="assets/images/home/2.png" alt="">
+                        <h3>Today, Your Journey Begins!
+                            Make us proud !
+                            </h3>
+                        <a href="course-2.html" class="bisylms-btn">Get Started Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-3">
+                    <aside class="widget">
+                        <div class="about-widget">
+                            <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                            <p>
+                                Campusna is an Edtech company that provides learning and training solutions for businesses and educational institutions. </p>
+                            <div class="ab-social">
+                                <a class="fac" href="https://www.facebook.com/groups/971804666843636/"><i class="social_facebook"></i></a>
+                                <a class="ins" href="https://www.instagram.com/campusnaa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="social_instagram"></i></a>
+                                <a class="lin" href="https://www.linkedin.com/company/campusna/mycompany/"><i class="social_linkedin"></i></a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <aside class="widget">
+                        <h3 class="widget-title">Explore</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Courses</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </aside>
+                <!-- </div>
+                <div class="col-lg-3 col-md-3">
+                    <aside class="widget">
+                        <h3 class="widget-title">Find Us</h3>
+                        <ul>
+                            <li><a href="#"></a></li>
+                            <li><a href="https://www.google.com/maps/place/10%C2%B038'16.6%22N+76%C2%B001'16.8%22E/@10.6379456,76.0191296,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d10.6379456!4d76.0213183?hl=en">Absect Tech School</a></li>
+                            <li><a href="https://www.google.com/maps/place/10%C2%B038'16.6%22N+76%C2%B001'16.8%22E/@10.6379456,76.0191296,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d10.6379456!4d76.0213183?hl=en">Vylathur, Guruvayur</a></li>
+                            <li><a href="https://www.google.com/maps/place/10%C2%B038'16.6%22N+76%C2%B001'16.8%22E/@10.6379456,76.0191296,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d10.6379456!4d76.0213183?hl=en">Kerala 679563</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <aside class="widget">
+                        <h3 class="widget-title">Support</h3>
+                        <ul>
+                            <li><a href="about">Help Center</a></li>
+                            <li><a href="#">Site Feedback</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </aside>
+                </div> -->
+            </div>
+            <!-- Copyrigh -->
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="copyright">
+                        <p>© 2021 Copyright all Right Reserved Developed by <a href="https://www.linkedin.com/in/dhafer-hamza-sfaxi-ba0862253/">@Dhafer Hamza sfaxi</a> for <a href="https://www.linkedin.com/company/campusna/mycompany/">@Campusna</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyrigh -->
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+        <!-- Back To Top -->
+        <a href="#" id="back-to-top">
+            <i class="fal fa-angle-double-up"></i>
+        </a>
+        <!-- Back To Top -->
+
+        <!-- Start Include All JS -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.appear.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/slick.js"></script>
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/TweenMax.min.js"></script>
+        <script src="assets/js/lightcase.js"></script>
+        <script src="assets/js/jquery.plugin.min.js"></script>
+        <script src="assets/js/jquery.countdown.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+        <script src="assets/js/jquery.shuffle.min.js"></script>
+
+        <script src="assets/js/theme.js"></script>
+        <!-- End Include All JS -->
+
+    </body>
+
+</html>

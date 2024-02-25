@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <title> Campusna - Blogs</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+    <!-- call for header.html file start -->
+
+    <!-- Container to hold the included header -->
+    <div id="header-container"></div>
+
+    <!-- Include JavaScript to load the header -->
+    <script src="includeHeader.js"></script>
+    
+    <!-- call for header.html file start -->
+
+
+    <!-- Banner Start -->
+    <section class="page-banner" style="background-image: url(assets/images/banner.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="banner-title">Blog Grid</h2>
+                    <div class="bread-crumbs">
+                        <a href="index.html">Home</a> <span></span> Blog Grid
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner End -->
+
+    <!-- Blog Start -->
+    <section class="blogpage-section">
+        <div class="container">
+            <div class="row" id="blog-posts">
+                <!-- Blog posts will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+    <!-- Blog End -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("blogs.json")
+                .then(response => response.json())
+                .then(data => {
+                    const blogPosts = document.getElementById("blog-posts");
+                    const blogs = data.blogs;
+    
+                    blogs.forEach(blog => {
+                        // Find the image source within the content array
+                        const imageSrc = blog.content.find(item => item.type === "image").src;
+    
+                        const postItem = document.createElement("div");
+                        postItem.classList.add("col-lg-6");
+                        postItem.innerHTML = `
+                            <div class="post-item-1">
+                                <img src="${imageSrc}" alt="${blog.title}"> <!-- Use the found image source -->
+                                <div class="b-post-details">
+                                    <div class="bp-meta">
+                                        <a href="#"><i class="icon_clock_alt"></i>${blog.date}</a>
+                                    </div>
+                                    <h3><a href="single-post.html?id=${blog.id}">${blog.title}</a></h3> <!-- Add the blog ID to the href -->
+                                    <a class="read-more" href="single-post.html?id=${blog.id}">Read More<i class="arrow_right"></i></a> <!-- Add the blog ID to the href -->
+                                </div>
+                            </div>
+                        `;
+                        blogPosts.appendChild(postItem);
+                    });
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        });
+    </script>
+    
+
+        <!-- Blog End -->
+    <!-- Footer Section Start -->
+    <div id="footer-container"></div>
+    <script src="includeFooter.js"></script>
+    <!-- Footer Section End -->
+
+
+        <!-- Back To Top -->
+        <a href="#" id="back-to-top">
+            <i class="fal fa-angle-double-up"></i>
+        </a>
+        <!-- Back To Top -->
+
+        <!-- Start Include All JS -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.appear.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/slick.js"></script>
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/TweenMax.min.js"></script>
+        <script src="assets/js/lightcase.js"></script>
+        <script src="assets/js/jquery.plugin.min.js"></script>
+        <script src="assets/js/jquery.countdown.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+        <script src="assets/js/jquery.shuffle.min.js"></script>
+
+        <script src="assets/js/theme.js"></script>
+        <!-- End Include All JS -->
+
+    </body>
+
+</html>
