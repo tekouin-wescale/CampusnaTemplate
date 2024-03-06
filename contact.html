@@ -7,16 +7,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 
+    <!-- Start Include All CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/elegant-icons.css" />
+    <link rel="stylesheet" href="assets/css/themify-icons.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/lightcase.css">
+    <link rel="stylesheet" href="assets/css/preset.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <!-- End Include All CSS -->
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- Favicon Icon -->
 </head>
 
 <body>
-    <!-- call for header.html file start -->
 
-    <!-- Container to hold the included header -->
-    <div id="header-container"></div>
+    <!-- Preloader Icon -->
+    <div class="preloader">
+        <div class="loaderInner">
+            
+            <div class="logo">
+                <p><img src="assets/images/logo4.png" alt="Logo" class="loaderInner"></p>
+            </div>
 
-    <!-- Include JavaScript to load the header -->
-    <script src="includeHeader.js"></script>
+
+            <p>campusna</p>
+        </div>
+    </div>
+    <!-- Preloader Icon -->
+
+    <!-- Header Start -->
+    <header class="header-01 sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <!-- logo Start-->
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/logo.png" alt="">
+                            <img class="sticky-logo" src="assets/images/white-logo.png" alt="">
+                        </a>
+                        <!-- logo End-->
+                        
+                        <!-- Moblie Btn Start -->
+                        <button class="navbar-toggler" type="button">
+                            <i class="fal fa-bars"></i>
+                        </button>
+                        <!-- Moblie Btn End -->
+                        <!-- Nav Menu Start -->
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav">
+                                <li>
+                                    <a href="index.html">Home</a>
+
+                                </li>
+                                <li>
+                                    <a href="about.html">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="tekouin.html">tekouin</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Nav Menu End -->
+
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
     
     <!-- call for header.html file start -->
 
@@ -81,22 +159,11 @@
                                 <div class="col-md-6">
                                     <input type="email" name="email" placeholder="Email Address">
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="number" name="phone-Number" placeholder="phone-Number">
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="text" name="subject" placeholder="Subject">
-                                </div>
                                 <div class="col-md-12">
                                     <textarea name="message" placeholder="How can we help?"></textarea>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="condition-check">
-                                        <input id="terms-conditions" type="checkbox">
-                                        <label for="terms-conditions">
-                                            I agree to the <a href="#">Terms & Conditions</a>      
-                                        </label>
-                                    </div>
+                                <div id="popup-message" style="display: none;">
+                                    <p>Email sent successfully!</p>
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <input type="submit" name="submit" value="Send Message">
@@ -107,6 +174,38 @@
                 </div>
             </div>
         </section>
+        
+        <script>
+            fetch('/data') 
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                emailjs.init(data.send.init);
+        
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();  
+        
+                    var form = this;
+                    var formData = {
+                        "from_name": form['first-name'].value + ' ' + form['last-name'].value,
+                        "from_email": form['email'].value,
+                        "message": form['message'].value
+                    };
+        
+                    emailjs.send(data.send.service, data.send.template, formData)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        document.getElementById('popup-message').style.display = 'block';
+                    })
+                    .catch(function(error) {
+                        console.log('FAILED...', error);
+                    });
+                });
+            })
+            .catch(function(error) {
+                console.log('Error fetching data:', error);
+            });
+        </script>
         
         <!-- Contact End -->
 
@@ -144,6 +243,7 @@
 
         <script src="assets/js/theme.js"></script>
         <!-- End Include All JS -->
+
 
     </body>
 

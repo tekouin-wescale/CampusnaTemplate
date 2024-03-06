@@ -1,42 +1,36 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
-
+var cors = require('cors')
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(cors())
 
-app.post('/send-email', (req, res) => {
-    const { 'f-name': firstName, 'l-name': lastName, email, phone, subject, message } = req.body;
+const jsonData = {
+    "send": {
+        "init": "SxEgFrN0ZQAGnU5Au",
+        "service": "service_4sthcdo",
+        "template": "template_tohc4zw",
+        "formData": "formData"
+    }
+};
 
-    // Create a Nodemailer transporter
-    let transporter = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-            user: 'your-email@gmail.com',
-            pass: 'your-email-password'
-        }
-    });
+delete jsonData.init;
 
-    // Setup email data
-    let mailOptions = {
-        from: '"Your Name" <your-email@gmail.com>',
-        to: 'recipient@example.com',
-        subject: subject,
-        text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`
-    };
-
-    // Send email
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return res.status(500).send(error.message);
-        }
-        res.status(200).send('Email sent successfully');
-    });
+app.get('/data', (req, res) => {
+    res.json(jsonData);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.get('/data', (req, res) => {
+    res.send({jsonData});
+});
+
+app.use(express.static(__dirname));
+
+// app.listen(port, () => {
+//     console.log(`Server running at http://localhost:${port}`);
+// });
+
+app.listen(port, async () => {
+    const open = await import('open');
+    await open.default(`/index.html`);
 });

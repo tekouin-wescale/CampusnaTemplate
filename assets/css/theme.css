@@ -6025,6 +6025,7 @@ Profile Page
 }
 
 .carousel{
+    transform: translateX(0);
     display: flex;
     list-style: none;
     margin: 0;
@@ -6035,10 +6036,9 @@ Profile Page
   
       transform: translateX(33.33333%);
     };
-    @media (min-width: 40em){
+    @media (min-width: 0.5em){
   
-      left: -20%;
-      transform: translateX(20%);
+      transform: translateX(0);
     }
     }
   
@@ -6142,6 +6142,9 @@ Profile Page
   .wrap {
     overflow: hidden;
   }
+  .wrap .carousel {
+    width: 100%;
+}
 
   .carousel-seat img{
     padding: 2rem;
@@ -6198,13 +6201,13 @@ Profile Page
 }
 
 .carousel-seat {
-    height: none; /* Set the height of the carousel seat */
-    display: flex; /* Use flexbox to center images vertically */
-    justify-content: center; /* Center images horizontally */
-    align-items: center; /* Center images vertically */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-image {
-    max-width: none; /* Remove the maximum width restriction */
-    max-height: none; /* Remove the maximum height restriction */
+    max-width: 100%;
+    max-height: 100%;
 }
