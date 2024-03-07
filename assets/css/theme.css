@@ -217,7 +217,6 @@
     bottom: -215px;
     width: 100%;
     height: 100%;
-    content: '';
     background: url(../images/home/left-shape.png) no-repeat left bottom;
 }
 .hero-content{
